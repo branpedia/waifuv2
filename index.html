@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Waifu Gallery</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-gray-900 text-white min-h-screen">
+  <div class="container mx-auto px-4 py-8">
+    <!-- Header -->
+    <header class="text-center mb-12">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">Waifu Gallery</h1>
+      <p class="text-gray-300 max-w-2xl mx-auto">Browse and discover beautiful waifu images from various categories. Click on any image to view it full size!</p>
+    </header>
+
+    <!-- Controls -->
+    <div class="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
+      <div class="flex items-center gap-2">
+        <span class="text-gray-300">Type:</span>
+        <div class="flex gap-2">
+          <button id="sfw-btn" class="category-btn bg-indigo-600 hover:bg-indigo-700 px-4 py-2 rounded-full active">SFW</button>
+          <button id="nsfw-btn" class="category-btn bg-pink-600 hover:bg-pink-700 px-4 py-2 rounded-full">NSFW</button>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <span class="text-gray-300">Category:</span>
+        <select id="category-select" class="bg-gray-800 text-white px-4 py-2 rounded-full focus:outline-none focus:ring-2 focus:ring-indigo-500">
+          <!-- Opsi kategori -->
+          <option value="waifu">Waifu</option>
+          <option value="neko">Neko</option>
+          <option value="shinobu">Shinobu</option>
+          <option value="megumin">Megumin</option>
+          <option value="bully">Bully</option>
+          <option value="cuddle">Cuddle</option>
+          <option value="cry">Cry</option>
+          <option value="hug">Hug</option>
+          <option value="awoo">Awoo</option>
+          <option value="kiss">Kiss</option>
+          <option value="lick">Lick</option>
+          <option value="pat">Pat</option>
+          <option value="smug">Smug</option>
+          <option value="bonk">Bonk</option>
+          <option value="yeet">Yeet</option>
+          <option value="blush">Blush</option>
+          <option value="smile">Smile</option>
+          <option value="wave">Wave</option>
+          <option value="highfive">Highfive</option>
+          <option value="handhold">Handhold</option>
+          <option value="nom">Nom</option>
+          <option value="bite">Bite</option>
+          <option value="glomp">Glomp</option>
+          <option value="slap">Slap</option>
+          <option value="kill">Kill</option>
+          <option value="kick">Kick</option>
+          <option value="happy">Happy</option>
+          <option value="wink">Wink</option>
+          <option value="poke">Poke</option>
+          <option value="dance">Dance</option>
+          <option value="cringe">Cringe</option>
+        </select>
+      </div>
+
+      <button id="fetch-btn" class="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 px-6 py-3 rounded-full font-semibold flex items-center gap-2">
+        <i class="fas fa-sync-alt"></i> Get Waifus
+      </button>
+    </div>
+
+    <!-- Loading -->
+    <div id="loading" class="hidden flex-col items-center justify-center my-12">
+      <div class="loading-spinner w-12 h-12 border-4 border-indigo-500 border-t-transparent rounded-full mb-4"></div>
+      <p class="text-gray-300">Fetching your waifus...</p>
+    </div>
+
+    <!-- Grid -->
+    <div id="waifu-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"></div>
+
+    <!-- Modal -->
+    <div id="modal" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 hidden">
+      <div class="relative max-w-4xl w-full p-4">
+        <button id="close-modal" class="absolute -top-12 right-0 text-white hover:text-pink-400 text-3xl">
+          <i class="fas fa-times"></i>
+        </button>
+        <img id="modal-image" src="" alt="Waifu" class="max-h-[80vh] w-auto mx-auto rounded-lg" />
+        <div class="flex justify-between items-center mt-4">
+          <a id="download-btn" href="#" download class="bg-indigo-600 hover:bg-indigo-700 px-4 py-2 rounded-full flex items-center gap-2">
+            <i class="fas fa-download"></i> Download
+          </a>
+          <button id="next-btn" class="bg-pink-600 hover:bg-pink-700 px-4 py-2 rounded-full flex items-center gap-2">
+            Next <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
