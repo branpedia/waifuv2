@@ -1,0 +1,28 @@
+.waifu-card {
+  transition: all 0.3s ease;
+}
+.waifu-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+.category-btn {
+  transition: all 0.2s ease;
+}
+.category-btn:hover {
+  transform: scale(1.05);
+}
+.category-btn.active {
+  transform: scale(1.1);
+  box-shadow: 0 0 0 2px white, 0 0 0 4px #6366f1;
+}
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
